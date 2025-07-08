@@ -3,9 +3,10 @@ import WelcomeMessage from './components/WelcomeMessage'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import MainContent from './MainContent'
-import Footer from './Footer'
-import Header from './Header'
+import MainContent from './components/MainContent'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import UserProfile from './components/UserProfile'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,7 +17,9 @@ function App() {
         <WelcomeMessage />
         <Header />
         <MainContent />
+        <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
         <Footer />
+
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -37,7 +40,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
 export default App
