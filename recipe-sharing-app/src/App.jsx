@@ -4,6 +4,9 @@ import RecipeList from "./components/RecipeList";
 import RecipeDetails from "./components/RecipeDetails";
 import AddRecipeForm from "./components/AddRecipeForm";
 import EditRecipeForm from "./components/EditRecipeForm";
+import FavoritesList from "./components/FavoriteList";
+import RecommendationsList from "./components/RecommendationsList";
+
 
 function App() {
   return (
@@ -15,6 +18,8 @@ function App() {
           <Route path="/" element={<RecipeList />} />
           <Route path="/recipe/:id" element={<RecipeDetails />} />
           <Route path="/edit/:id" element={<EditRecipeForm />} />
+          <Route path="/favorite/:id" element={<FavoritesList/>} />
+          <Route path="/recommendation/:id" element={<RecommendationsList />} />
         </Routes>
       </div>
     </Router>
