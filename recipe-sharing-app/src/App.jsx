@@ -8,6 +8,7 @@ import FavoritesList from "./components/FavoriteList";
 import RecommendationsList from "./components/RecommendationsList";
 
 
+
 function App() {
   return (
     <Router>
