@@ -4,14 +4,19 @@ const useRecipeStore = create((set) => ({
   recipes: [],
   searchTerm: "",
   filteredRecipes: [],
+  favorites: [],
+  recommendedRecipes: [],
 
   addRecipe: (recipe) =>
-    set((state) => ({
-      recipes: [...state.recipes, recipe],
-      filteredRecipes: [...state.recipes, recipe].filter((r) =>
-        r.title.toLowerCase().includes(state.searchTerm.toLowerCase())
-      ),
-    })),
+    set((state) => {
+      const newRecipes = [...state.recipes, recipe];
+      return {
+        recipes: newRecipes,
+        filteredRecipes: newRecipes.filter((r) =>
+          r.title.toLowerCase().includes(state.searchTerm.toLowerCase())
+        ),
+      };
+    }),
 
   deleteRecipe: (id) =>
     set((state) => {
@@ -21,6 +26,7 @@ const useRecipeStore = create((set) => ({
         filteredRecipes: updated.filter((r) =>
           r.title.toLowerCase().includes(state.searchTerm.toLowerCase())
         ),
+        favorites: state.favorites.filter((favId) => favId !== id),
       };
     }),
 
@@ -44,6 +50,28 @@ const useRecipeStore = create((set) => ({
         r.title.toLowerCase().includes(term.toLowerCase())
       ),
     })),
+
+  toggleFavorite: (id) =>
+    set((state) => {
+      const isFavorite = state.favorites.includes(id);
+      return {
+        favorites: isFavorite
+          ? state.favorites.filter((favId) => favId !== id)
+          : [...state.favorites, id],
+      };
+    }),
+
+  setRecommendedRecipes: () =>
+    set((state) => {
+      // Example logic: Recommend recipes with the word 'easy' or 'quick'
+      const tags = ["easy", "quick", "popular"];
+      const recommended = state.recipes.filter((r) =>
+        tags.some((tag) => r.title.toLowerCase().includes(tag))
+      );
+      return {
+        recommendedRecipes: recommended,
+      };
+    }),
 }));
 
 export { useRecipeStore };
