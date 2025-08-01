@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import.meta.env.VITE_APP_GITHUB_API_KEY;
-
+import Home from './components/Home';
 
 function App() {
   const [count, setCount] = useState(0)
