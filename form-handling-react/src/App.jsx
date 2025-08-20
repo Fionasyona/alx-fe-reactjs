@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import FormikForm from "./components/FormikForm";
+import FormikForm from "./components/formikForm";
 import RegistrationForm from "./components/RegistrationForm";
 
 
