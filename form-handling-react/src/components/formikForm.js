@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 // Validation schema
@@ -19,7 +19,6 @@ export default function FormikForm() {
   const handleSubmit = (values, { setSubmitting, resetForm }) => {
     console.log("Formik submitting:", values);
 
-    // Mock API call
     fetch("https://jsonplaceholder.typicode.com/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -44,51 +43,48 @@ export default function FormikForm() {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ values, errors, touched, handleChange, handleBlur, isSubmitting }) => (
+        {({ isSubmitting }) => (
           <Form>
             <div className="mb-2">
-              <input
+              <Field
                 type="text"
                 name="username"
                 placeholder="Username"
-                value={values.username}
-                onChange={handleChange}
-                onBlur={handleBlur}
                 className="w-full p-2 border rounded"
               />
-              {errors.username && touched.username && (
-                <p className="text-red-500 text-sm">{errors.username}</p>
-              )}
+              <ErrorMessage
+                name="username"
+                component="p"
+                className="text-red-500 text-sm"
+              />
             </div>
 
             <div className="mb-2">
-              <input
+              <Field
                 type="email"
                 name="email"
                 placeholder="Email"
-                value={values.email} 
-                onChange={handleChange}
-                onBlur={handleBlur}
                 className="w-full p-2 border rounded"
               />
-              {errors.email && touched.email && (
-                <p className="text-red-500 text-sm">{errors.email}</p>
-              )}
+              <ErrorMessage
+                name="email"
+                component="p"
+                className="text-red-500 text-sm"
+              />
             </div>
 
             <div className="mb-2">
-              <input
+              <Field
                 type="password"
                 name="password"
                 placeholder="Password"
-                value={values.password}
-                onChange={handleChange}
-                onBlur={handleBlur}
                 className="w-full p-2 border rounded"
               />
-              {errors.password && touched.password && (
-                <p className="text-red-500 text-sm">{errors.password}</p>
-              )}
+              <ErrorMessage
+                name="password"
+                component="p"
+                className="text-red-500 text-sm"
+              />
             </div>
 
             <button
