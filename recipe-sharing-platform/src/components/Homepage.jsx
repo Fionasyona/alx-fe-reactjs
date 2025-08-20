@@ -22,7 +22,7 @@ export default function HomePage() {
           <Link
             key={recipe.id}
             to={`/recipe/${recipe.id}`}
-            className="bg-white rounded-lg shadow-md overflow-hidden 
+            className="bg to-blue-300 rounded-lg shadow-md overflow-hidden 
                        hover:shadow-lg hover:scale-105 transition-transform"
           >
             <img
