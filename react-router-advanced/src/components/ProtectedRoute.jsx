@@ -1,16 +1,12 @@
 // src/components/ProtectedRoute.jsx
 import React from "react";
 import { Navigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth"; // Import the hook
 
-/**
- * A wrapper component that protects routes from unauthenticated access.
- * Usage: <ProtectedRoute><Profile /></ProtectedRoute>
- */
 const ProtectedRoute = ({ children }) => {
-  const isAuthenticated = localStorage.getItem("auth") === "true"; // Simulated login check
+  const { isAuthenticated } = useAuth(); // Use the hook
 
   if (!isAuthenticated) {
-    // Redirect unauthenticated users to login page
     return <Navigate to="/login" replace />;
   }
 
