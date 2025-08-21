@@ -41,7 +41,7 @@ function App() {
         </Route>
 
         {/* Dynamic Routing Example */}
-        <Route path="/blog/:Id" element={<BlogPost/>} />
+        <Route path="/blog/:id" element={<BlogPost/>} />
 
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
