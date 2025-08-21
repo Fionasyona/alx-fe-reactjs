@@ -7,13 +7,13 @@ import {
 } from "react-router-dom";
 
 // Pages
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Profile from "./pages/Profile";
-import ProfileDetails from "./pages/ProfileDetails";
-import ProfileSettings from "./pages/ProfileSettings";
-import Post from "./pages/Post";
-import Login from "./pages/Login";
+import Home from "./components/Home";
+import About from "./components/About";
+import Profile from "./components/Profile";
+import ProfileDetails from "./components/ProfileDetails";
+import ProfileSettings from "./components/ProfileSettings";
+import Post from "./components/Post";
+import Login from "./components/Login";
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
