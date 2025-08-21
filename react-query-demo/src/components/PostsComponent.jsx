@@ -10,13 +10,13 @@ function PostsComponent() {
     return response.data;
   };
 
-  const { data, isLoading, isError } = useQuery(["posts"], fetchPosts, {
+  const { data, isLoading, isError, error } = useQuery(["posts"], fetchPosts, {
     refetchOnWindowFocus: false, // disables refetch on window focus
     keepPreviousData: true, // keeps old data while loading new data
   });
 
   if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>Error loading posts.</p>;
+  if (isError) return <p>Error loading posts: {error.message}</p>;
 
   return (
     <ul>
