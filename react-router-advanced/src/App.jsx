@@ -1,24 +1,15 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+// Pages / Components
 import Home from "./components/Home";
 import About from "./components/About";
 import Profile from "./components/Profile";
 import ProfileDetails from "./components/ProfileDetails";
 import ProfileSettings from "./components/ProfileSettings";
-import BlogPost from "./components/BlogPost"; 
+import BlogPost from "./components/BlogPost";
 import Login from "./components/Login";
-
-// Protected Route Component
-const ProtectedRoute = ({ children }) => {
-  const isAuthenticated = localStorage.getItem("auth") === "true"; // Simulated login
-  return isAuthenticated ? children : <Navigate to="/login" />;
-};
+import ProtectedRoute from "./components/ProtectedRoute"; // single import only
 
 function App() {
   return (
@@ -41,9 +32,11 @@ function App() {
         </Route>
 
         {/* Dynamic Routing Example */}
-        <Route path="/blog/:id" element={<BlogPost/>} />
+        <Route path="/blog/:id" element={<BlogPost />} />
 
         <Route path="/login" element={<Login />} />
+
+        {/* Fallback 404 */}
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
     </Router>
