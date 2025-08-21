@@ -5,8 +5,8 @@ const Profile = () => (
   <div>
     <h1>Profile Page</h1>
     <nav>
-      <Link to="details">Profile Details</Link> |
-      <Link to="settings">Profile Settings</Link>
+      <Link to="details">ProfileDetails</Link> |
+      <Link to="settings">ProfileSettings</Link>
     </nav>
     <Outlet /> {/* Nested routes render here */}
   </div>
