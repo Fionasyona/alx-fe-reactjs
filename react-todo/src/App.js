@@ -1,5 +1,6 @@
 import React from "react";
-import TodoList from "./TodoList";
+// Importing the TodoList component from the components directory
+import TodoList from "./components/TodoList";
 
 function App() {
   return (
