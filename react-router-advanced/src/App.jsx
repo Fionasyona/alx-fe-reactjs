@@ -11,7 +11,7 @@ import About from "./components/About";
 import Profile from "./components/Profile";
 import ProfileDetails from "./components/ProfileDetails";
 import ProfileSettings from "./components/ProfileSettings";
-import Post from "./components/Post";
+import BlogPost from "./components/BlogPost"; 
 import Login from "./components/Login";
 
 // Protected Route Component
@@ -41,7 +41,7 @@ function App() {
         </Route>
 
         {/* Dynamic Routing Example */}
-        <Route path="/post/:postId" element={<Post />} />
+        <Route path="/blog/:Id" element={<blog/>} />
 
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
